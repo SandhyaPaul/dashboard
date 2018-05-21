@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import promiseMiddleware from 'redux-promise-middleware';
@@ -16,9 +16,9 @@ export { store };
 
 ReactDOM.render(
 	<Provider store={store}>
-		<BrowserRouter>
+		<HashRouter>
 			<Routes />
-		</BrowserRouter>
+		</HashRouter>
 	</Provider>,
 	document.getElementById('root') || document.createElement('div') //For testcases
 );
