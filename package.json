@@ -1,0 +1,77 @@
+{
+	"name": "dashboard",
+	"version": "0.1.0",
+	"private": true,
+	"homepage": "https://SandhyaPaul.github.io/dashboard",
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build",
+		"test": "react-scripts test --env=jsdom",
+		"eject": "react-scripts eject",
+		"precommit": "lint-staged",
+		"prepackage-functions": "rimraf functions",
+		"package-functions": "babel es6-functions --out-dir functions --copy-files --ignore es6-functions/node_modules"
+	},
+	"dependencies": {
+		"axios": "0.18.0",
+		"gh-pages": "^1.1.0",
+		"md5": "2.2.1",
+		"react": "16.2.0",
+		"react-dom": "16.2.0",
+		"react-redux": "5.0.7",
+		"react-router-dom": "4.2.2",
+		"react-scripts": "1.1.1",
+		"redux": "3.7.2",
+		"redux-promise-middleware": "5.0.0"
+	},
+	"devDependencies": {
+		"@babel/cli": "7.0.0-beta.40",
+		"@babel/core": "7.0.0-beta.40",
+		"@babel/plugin-proposal-export-default-from": "7.0.0-beta.40",
+		"@babel/preset-env": "7.0.0-beta.40",
+		"enzyme": "3.3.0",
+		"enzyme-adapter-react-16": "1.1.1",
+		"enzyme-to-json": "3.3.1",
+		"husky": "0.14.3",
+		"lint-staged": "7.0.0",
+		"prettier": "1.11.1",
+		"rimraf": "2.6.2"
+	},
+	"lint-staged": {
+		"*.{js,jsx,json,css}": ["prettier --write", "git add"]
+	},
+	"prettier": {
+		"printWidth": 120,
+		"tabWidth": 4,
+		"useTabs": true,
+		"semi": true,
+		"singleQuote": true,
+		"trailingComma": "none",
+		"bracketSpacing": true,
+		"jsxBracketSameLine": false,
+		"arrowParens": "avoid",
+		"proseWrap": "never"
+	},
+	"jest": {
+		"collectCoverageFrom": ["src/**/*.{js,jsx}", "!src/registerServiceWorker.js"]
+	},
+	"babel": {
+		"plugins": ["@babel/plugin-proposal-export-default-from"],
+		"presets": [
+			[
+				"@babel/env",
+				{
+					"targets": {
+						"node": "6.11.5"
+					}
+				}
+			]
+		]
+	},
+	"browserslist": {
+		"development": ["last 2 chrome versions", "last 2 firefox versions", "last 2 edge versions"],
+		"production": [">1%", "last 4 versions", "Firefox ESR", "not ie < 11"]
+	}
+}
